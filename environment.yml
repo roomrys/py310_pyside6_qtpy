@@ -3,8 +3,8 @@ channels:
   - conda-forge
 dependencies:
   - python=3.10
-  - pyside6
   - qtpy
   - pip
   - pip:
+    - pyside6
     - -e . # Install the package in the current directory
