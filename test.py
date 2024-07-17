@@ -1,6 +1,12 @@
+import logging
 import subprocess
 from pathlib import Path
 
+# Configure the logging module to write logs to a file
+LOGFILE = 'test.log'
+logging.basicConfig(filename=LOGFILE, level=logging.INFO, 
+                    format='%(asctime)s %(levelname)s %(name)s %(message)s')
+logger = logging.getLogger(__name__)
 
 def find_imports(library, input_dir, output_dir=None):
     """Finds all imports from a given library in Python files and copies them to test.
@@ -58,21 +64,58 @@ def find_imports(library, input_dir, output_dir=None):
 
 
 def test_imports():
-    import envexp
+
+    # Reset log file
+    with open(LOGFILE, 'w') as f:
+        pass
+
+    # Run the test and log results
+    try:
+        import envexp
+        passed = True
+        print("Imports passed successfully!")
+        logger.info("Imports passed successfully!")
+    except Exception as e:
+        passed = False
+        print("Imports failed!")
+        logger.error(e)
+        logger.info("Imports failed!")
+        raise e
+
 
 def log_dependencies():
 
+    def post_process_file(filename):
+        """Removes empty lines from a file."""
+
+        with open(filename, 'r') as f:
+            lines = f.readlines()
+
+        with open(filename, 'w') as f:
+            for line in lines:
+                if line.strip():  # only write the line if it's not empty
+                    f.write(line)
+
+    mamba_filename = 'mamba_list.txt'
+    pip_filename = 'pip_freeze.txt'
+
     # mamba list > mamba_list.txt
-    with open('mamba_list.txt', 'w') as f:
-        subprocess.run(['mamba', 'list'], stdout=f)
+    with open(mamba_filename, 'w') as f:
+        subprocess.run('mamba run -n envexp mamba list', stdout=f)
 
     # pip freeze > pip_freeze.txt
-    with open('pip_freeze.txt', 'w') as f:
-        subprocess.run(['pip', 'freeze'], stdout=f)
+    with open(pip_filename, 'w') as f:
+        subprocess.run('mamba run -n envexp pip freeze', stdout=f)
+
+    # Remove empty lines from the files
+    for filename in [mamba_filename, pip_filename]:
+        post_process_file(filename)
+
+
 
 def main():
     # Find imports from qtpy in the given directory
-    find_imports('qtpy', r'C:\Users\Liezl\Projects\sleap-estimates-animal-poses\pull-requests\sleap')
+    find_imports(library='qtpy', input_dir=r'D:\social-leap-estimates-animal-poses\source\sleap')
 
     # Test the imports
     test_imports()

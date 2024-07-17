@@ -1,0 +1,2 @@
+2024-07-17 11:54:41,394 ERROR __main__ DLL load failed while importing QtCharts: The specified module could not be found.
+2024-07-17 11:54:41,394 INFO __main__ Imports failed!
