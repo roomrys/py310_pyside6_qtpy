@@ -1,16 +1,11 @@
 [project]
-name = "envexp"
+name = "experiment"
 version = "0.1.0"
 description = ""
 authors = [{ name = "Your Name", email = "you@example.com" }]
+dependencies = ["qtpy", "PySide6"]
 requires-python = "~=3.10"
 
 [build-system]
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
-
-[tool.setuptools.packages.find]
-where = ["envexp"]
-
-[project.scripts]
-test-env = "test_env:main"

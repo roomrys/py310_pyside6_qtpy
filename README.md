@@ -10,26 +10,9 @@ To get started with the ENVironment EXPeriment package:
    ```bash
    mamba activate envexp
    ```
-3. test that all the imports work
+3. test that all the imports work using CLI
    ```bash
-   python test.py
-   ```
-
-To restart the experiment:
-
-1.  deactivate the environment with
-   ```bash
-   mamba deactivate
-   ```
-
-2. remove the environment with
-   ```bash
-   mamba env remove -n envexp
-   ```
-
-3. reset the repo
-   ```bash
-   git reset --hard origin/main
+   test-env
    ```
 
 > Note: this project was created to verify that Python 3.10, PySide6, and QtPy could work

@@ -1,12 +1,12 @@
-# packages in environment at C:\Users\TalmoLab\mambaforge\envs\envexp:
+# packages in environment at C:\Users\TalmoLab\mambaforge\envs\experiment:
 #
 # Name                    Version                   Build  Channel
 bzip2                     1.0.8                h2466b09_7    conda-forge
 ca-certificates           2024.7.4             h56e8100_0    conda-forge
 cairo                     1.18.0               h91e5215_2    conda-forge
 double-conversion         3.3.0                h63175ca_0    conda-forge
-envexp                    0.1.0                    pypi_0    pypi
 expat                     2.6.2                h63175ca_0    conda-forge
+experiment                0.1.0                    pypi_0    pypi
 font-ttf-dejavu-sans-mono 2.37                 hab24e00_0    conda-forge
 font-ttf-inconsolata      3.000                h77eed37_0    conda-forge
 font-ttf-source-code-pro  2.038                h77eed37_0    conda-forge

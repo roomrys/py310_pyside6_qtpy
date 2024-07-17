@@ -8,6 +8,24 @@ logging.basicConfig(filename=LOGFILE, level=logging.INFO,
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
 logger = logging.getLogger(__name__)
 
+def remove_environment():
+    """Removes the conda environment created for the experiment."""
+
+    # Remove the conda environment
+    subprocess.run('mamba env remove -n experiment', shell=True)
+
+def create_environment():
+    """Creates a new conda environment with the required dependencies."""
+
+    parent_dir = Path(__file__).resolve().parent
+    environment_file = parent_dir / 'environment.yml'
+
+    # Create a new conda environment with the required dependencies
+    subprocess.run(f'mamba env create -f {environment_file.as_posix()}', shell=True)
+
+    # Log the dependencies
+    log_dependencies()
+
 def find_imports(library, input_dir, output_dir=None):
     """Finds all imports from a given library in Python files and copies them to test.
     
@@ -16,11 +34,12 @@ def find_imports(library, input_dir, output_dir=None):
         input_dir (str): The directory to search for Python files. 
             E.g. 'C:\path\to\sleap'.
         output_dir (str): The directory to save the modified Python files. Defaults to 
-            '.\envexp'.
+            '.\experiment'.
     """
 
     if output_dir is None:
-        output_dir = '.\envexp'
+        current_file = Path(__file__).resolve()
+        output_dir = f'{current_file.parent}\experiment'
 
     input_path = Path(input_dir)
     output_path = Path(output_dir).resolve()  # Resolve to absolute path but keep it relative if given so
@@ -71,19 +90,21 @@ def test_imports():
 
     # Run the test and log results
     try:
-        import envexp
-        passed = True
+        output = subprocess.run('mamba run -n experiment python -c "import experiment"', shell=True, capture_output=True)
+        if output.returncode != 0:
+            error = output.stderr.decode()
+            error = error.replace('\r\r', '')
+            raise Exception(error)
         print("Imports passed successfully!")
         logger.info("Imports passed successfully!")
     except Exception as e:
-        passed = False
+        logger.exception("Imports failed!")
         print("Imports failed!")
-        logger.error(e)
-        logger.info("Imports failed!")
         raise e
 
 
 def log_dependencies():
+    """Logs the dependencies of the experiment environment to file."""
 
     def post_process_file(filename):
         """Removes empty lines from a file."""
@@ -101,11 +122,11 @@ def log_dependencies():
 
     # mamba list > mamba_list.txt
     with open(mamba_filename, 'w') as f:
-        subprocess.run('mamba run -n envexp mamba list', stdout=f)
+        subprocess.run('mamba run -n experiment mamba list', stdout=f)
 
     # pip freeze > pip_freeze.txt
     with open(pip_filename, 'w') as f:
-        subprocess.run('mamba run -n envexp pip freeze', stdout=f)
+        subprocess.run('mamba run -n experiment pip freeze', stdout=f)
 
     # Remove empty lines from the files
     for filename in [mamba_filename, pip_filename]:
@@ -114,14 +135,17 @@ def log_dependencies():
 
 
 def main():
+    # Remove environment
+    remove_environment()
+
+    # Create a new conda environment
+    create_environment()
+
     # Find imports from qtpy in the given directory
     find_imports(library='qtpy', input_dir=r'D:\social-leap-estimates-animal-poses\source\sleap')
 
     # Test the imports
     test_imports()
-
-    # Log the dependencies
-    log_dependencies()
 
 if __name__ == "__main__":
     main()

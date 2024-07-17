@@ -1,6 +1,6 @@
 comm==0.1.2
 debugpy==1.6.6
--e git+https://github.com/roomrys/py310_pyside6_qtpy@943540465fab06da2b8b2be9f3d942d08cf66f28#egg=envexp
+-e git+https://github.com/roomrys/py310_pyside6_qtpy@55ee5752f07ce5f930d721ff4e71217dae53a172#egg=experiment&subdirectory=envexp
 ipykernel==6.21.2
 jupyter_client==8.0.3
 jupyter_core==5.2.0
