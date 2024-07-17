@@ -10,11 +10,7 @@ To get started with the ENVironment EXPeriment package:
    ```bash
    mamba activate envexp
    ```
-3. find and copy all relevant imports from repo in question with
-   ```bash
-   python find_qtpy_imports.py
-   ```
-4. test that all the imports work
+3. test that all the imports work
    ```bash
    python test.py
    ```

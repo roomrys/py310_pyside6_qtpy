@@ -1,0 +1,37 @@
+brotlipy @ file:///D:/bld/brotlipy_1666764804378/work
+certifi==2022.12.7
+cffi @ file:///D:/bld/cffi_1671179506518/work
+charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1678108872112/work
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
+comm==0.1.2
+conda==23.1.0
+conda-package-handling @ file:///home/conda/feedstock_root/build_artifacts/conda-package-handling_1669907009957/work
+conda_package_streaming @ file:///home/conda/feedstock_root/build_artifacts/conda-package-streaming_1669733752472/work
+cryptography @ file:///D:/bld/cryptography-split_1679811386218/work
+debugpy==1.6.6
+idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1663625384323/work
+ipykernel==6.21.2
+jupyter_client==8.0.3
+jupyter_core==5.2.0
+libmambapy @ file:///D:/bld/mamba-split_1680002565588/work/libmambapy
+mamba @ file:///D:/bld/mamba-split_1680002565588/work/mamba
+menuinst @ file:///D:/bld/menuinst_1666839998718/work
+nest-asyncio==1.5.6
+pluggy @ file:///home/conda/feedstock_root/build_artifacts/pluggy_1667232663820/work
+psutil==5.9.4
+pycosat @ file:///D:/bld/pycosat_1666836675990/work
+pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1636257122734/work
+pyOpenSSL @ file:///home/conda/feedstock_root/build_artifacts/pyopenssl_1680037383858/work
+PySocks @ file:///D:/bld/pysocks_1661604991356/work
+pywin32==305
+pyzmq==25.0.0
+requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1680286922386/work
+ruamel.yaml @ file:///D:/bld/ruamel.yaml_1678273308128/work
+ruamel.yaml.clib @ file:///D:/bld/ruamel.yaml.clib_1670412994006/work
+toolz @ file:///home/conda/feedstock_root/build_artifacts/toolz_1657485559105/work
+tornado==6.2
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1677948868469/work
+traitlets==5.9.0
+urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1678635778344/work
+win-inet-pton @ file:///D:/bld/win_inet_pton_1667051142467/work
+zstandard==0.19.0
