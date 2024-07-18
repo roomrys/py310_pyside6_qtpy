@@ -1,1 +1,16 @@
-2024-07-18 11:51:05,459 INFO test_env Imports passed successfully!
+2024-07-18 12:16:27,690 ERROR test_env Imports failed!
+Traceback (most recent call last):
+  File "C:\Users\Liezl\Projects\py310_pyside6_qtpy\envexp\test_env.py", line 136, in test_imports
+    raise Exception(error)
+Exception: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\Liezl\Projects\py310_pyside6_qtpy\envexp\experiment\__init__.py", line 26, in <module>
+    from experiment import monitor
+  File "C:\Users\Liezl\Projects\py310_pyside6_qtpy\envexp\experiment\monitor.py", line 2, in <module>
+    from qtpy.QtCharts import QtCharts
+  File "C:\Users\Liezl\miniconda3\envs\experiment\lib\site-packages\qtpy\QtCharts.py", line 46, in <module>
+    from PySide6 import QtCharts
+ImportError: DLL load failed while importing QtCharts: The specified module could not be found.
+
+ERROR conda.cli.main_run:execute(47): `conda run python -c import experiment` failed. (See above for error)
+
