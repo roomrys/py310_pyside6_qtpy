@@ -48,10 +48,10 @@ packaging                 24.1               pyhd8ed1ab_0    conda-forge
 pcre2                     10.40                h17e33f8_0    conda-forge
 pip                       24.0               pyhd8ed1ab_0    conda-forge
 pixman                    0.43.4               h63175ca_0    conda-forge
-pyside6                   6.6.0           py310hd741ceb_2    conda-forge
+pyside6                   6.5.3           py310hd741ceb_1    conda-forge
 python                    3.10.14         h4de0772_0_cpython    conda-forge
 python_abi                3.10                    4_cp310    conda-forge
-qt6-main                  6.6.0                hc9a02c6_0    conda-forge
+qt6-main                  6.5.3                hc9a02c6_1    conda-forge
 qtpy                      2.4.1              pyhd8ed1ab_0    conda-forge
 setuptools                71.0.1             pyhd8ed1ab_0    conda-forge
 tk                        8.6.13               h5226925_1    conda-forge
