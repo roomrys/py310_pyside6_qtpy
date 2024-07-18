@@ -1,6 +1,27 @@
 import logging
 import subprocess
+import time
 from pathlib import Path
+
+
+def wait_for_log_update(logfile_path, timeout=10):
+    logfile_path = Path(logfile_path)  # Ensure logfile_path is a Path object
+    start_time = time.time()
+    initial_mod_time = logfile_path.stat().st_mtime
+    while time.time() - start_time < timeout:
+        current_mod_time = logfile_path.stat().st_mtime
+        if current_mod_time != initial_mod_time:
+            return True  # Log file has been updated
+        time.sleep(0.5)  # Wait for half a second before checking again
+    return False  # Timeout reached without detecting an update
+
+
+# Function to close and remove all handlers from the logger
+def close_logger_handlers(logger):
+    for handler in logger.handlers[:]:  # Iterate over a copy of the list
+        handler.close()
+        logger.removeHandler(handler)
+
 
 # Configure the logging module to write logs to a file
 LOGFILE = Path(Path(__file__).parent.parent.absolute() /"test.log")
@@ -163,8 +184,16 @@ def main():
         input_dir=r"C:\Users\Liezl\Projects\sleap-estimates-animal-poses\pull-requests\sleap",
     )
 
-    # Test the imports
-    test_imports()
+    try:
+        # Test the imports
+        test_imports()
+    except Exception as e:
+        raise e
+    finally:
+        # Commit the changes
+        close_logger_handlers(logger)
+        wait_for_log_update(LOGFILE)
+        commit_changes(commit_message=commit_message)
 
 
 if __name__ == "__main__":
