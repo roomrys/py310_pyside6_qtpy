@@ -1,6 +1,6 @@
 backports.entry-points-selectable==1.1.1
 distlib==0.3.4
--e git+https://github.com/roomrys/py310_pyside6_qtpy@886712e724b8d280deaa460170323eb27eed6506#egg=experiment&subdirectory=envexp
+-e git+https://github.com/roomrys/py310_pyside6_qtpy@2004dbb9bbdf3b42dcc5a31c8187b2771fa51cf3#egg=experiment&subdirectory=envexp
 filelock==3.4.0
 packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1718189413536/work
 platformdirs==2.4.0
