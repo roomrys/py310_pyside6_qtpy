@@ -10,7 +10,10 @@ To get started with the ENVironment EXPeriment package:
    ```bash
    mamba activate envexp
    ```
-3. test that all the imports work using CLI
+3. edit the `envexp/environemnt.yml` to contain the dependencies you need
+4. specify the path to the source code for the repo we want to test imports for
+5. determine which library's imports we are testing in envexp/test_env.py
+6. test that all the imports work using CLI
    ```bash
    test-env
    ```
