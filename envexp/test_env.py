@@ -1,3 +1,4 @@
+import argparse
 import logging
 import subprocess
 import time
@@ -171,7 +172,50 @@ def log_dependencies():
         post_process_file(filename)
 
 
-def main():
+def commit_changes(commit_message: str):
+    """Commits the changes to the experiment branch."""
+
+    # Commit the changes to the experiment branch
+    subprocess.run("git add .", shell=True)
+    print(f"commit_message: {commit_message}")
+    # subprocess.run(f'git commit -m "{commit_message}"', shell=True)
+
+def create_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--library",
+        type=str,
+        help="The library to search for in the imports. E.g. 'qtpy'.",
+    )
+    parser.add_argument(
+        "--input-dir",
+        type=str,
+        help="The directory to search for Python files. E.g. 'C:\path\to\sleap'.",
+    )
+    parser.add_argument(
+        "--commit-message",
+        type=str,
+        help="The commit message to use when committing the changes.",
+    )
+    return parser
+
+def parse_args(library=None, input_dir=None, commit_message=None):
+    # Parse the command-line arguments
+    parser = create_parser()
+    args = parser.parse_args()
+    library = library or args.library
+    input_dir = input_dir or args.input_dir
+    commit_message = commit_message or args.commit_message
+    if (not library) or (not input_dir) or (not commit_message):
+        parser.print_usage()
+        raise ValueError("Missing required arguments", f"{library=}", f"{input_dir=}", f"{commit_message=}")
+    return library, input_dir, commit_message
+
+def main(library=None, input_dir=None, commit_message=None):
+
+    # Parse the command-line arguments
+    library, input_dir, commit_message = parse_args(library, input_dir, commit_message)
+
     # Remove environment
     remove_environment()
 
@@ -180,8 +224,8 @@ def main():
 
     # Find imports from qtpy in the given directory
     find_imports(
-        library="qtpy",
-        input_dir=r"C:\Users\Liezl\Projects\sleap-estimates-animal-poses\pull-requests\sleap",
+        library=library,
+        input_dir=input_dir,
     )
 
     try:
