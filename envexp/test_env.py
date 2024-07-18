@@ -3,7 +3,7 @@ import subprocess
 from pathlib import Path
 
 # Configure the logging module to write logs to a file
-LOGFILE = "test.log"
+LOGFILE = Path(Path(__file__).parent.parent.absolute() /"test.log")
 logging.basicConfig(
     filename=LOGFILE,
     level=logging.INFO,
@@ -168,4 +168,4 @@ def main():
 
 
 if __name__ == "__main__":
-    test_imports()
+    main()
