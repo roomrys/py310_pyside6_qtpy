@@ -1,4 +1,4 @@
-2024-07-18 11:41:45,849 ERROR test_env Imports failed!
+2024-07-18 11:43:28,501 ERROR test_env Imports failed!
 Traceback (most recent call last):
   File "C:\Users\Liezl\Projects\py310_pyside6_qtpy\envexp\test_env.py", line 136, in test_imports
     raise Exception(error)
