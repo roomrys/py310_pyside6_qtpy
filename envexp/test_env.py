@@ -177,8 +177,7 @@ def commit_changes(commit_message: str):
 
     # Commit the changes to the experiment branch
     subprocess.run("git add .", shell=True)
-    print(f"commit_message: {commit_message}")
-    # subprocess.run(f'git commit -m "{commit_message}"', shell=True)
+    subprocess.run(f'git commit -m "{commit_message}"', shell=True)
 
 def create_parser():
     parser = argparse.ArgumentParser()
