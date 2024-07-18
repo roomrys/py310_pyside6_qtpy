@@ -11,12 +11,24 @@ To get started with the ENVironment EXPeriment package:
    mamba activate envexp
    ```
 3. edit the `envexp/environemnt.yml` to contain the dependencies you need
-4. specify the path to the source code for the repo we want to test imports for
-5. determine which library's imports we are testing in envexp/test_env.py
-6. test that all the imports work using CLI
+4. test that all the imports work using CLI
    ```bash
-   test-env
+   test-env --library <required> --input-dir <required> --commit-message <required>
    ```
+
+## test-env
+
+```bash
+usage: test-env [-h] [--library LIBRARY] [--input-dir INPUT_DIR] [--commit-message COMMIT_MESSAGE]
+
+options:
+  -h, --help            show this help message and exit
+  --library LIBRARY     The library to search for in the imports. E.g. 'qtpy'.
+  --input-dir INPUT_DIR
+                        The directory to search for Python files. E.g. 'C:\path o\sleap'.
+  --commit-message COMMIT_MESSAGE
+                        The commit message to use when committing the changes.
+```
 
 > Note: this project was created to verify that Python 3.10, PySide6, and QtPy could work
 > together in an environment.
