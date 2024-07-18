@@ -106,6 +106,7 @@ def test_imports():
             'mamba run -n experiment python -c "import experiment"',
             shell=True,
             capture_output=True,
+            cwd=Path(__file__).resolve().parent,
         )
         if output.returncode != 0:
             error = output.stderr.decode()
