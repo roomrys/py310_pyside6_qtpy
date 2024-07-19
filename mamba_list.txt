@@ -61,7 +61,7 @@ List of packages in environment: "/Users/liezlmaree/micromamba/envs/experiment"
   pcre2                      10.40         hb34f9b4_0          conda-forge
   pip                        24.0          pyhd8ed1ab_0        conda-forge
   pixman                     0.43.4        hebf3989_0          conda-forge
-  pyside6                    6.4.3         py310h26ac0f8_1     conda-forge
+  pyside6                    6.4.2         py310h26ac0f8_1     conda-forge
   python                     3.10.13       h2469fbe_0_cpython  conda-forge
   python_abi                 3.10          4_cp310             conda-forge
   qt6-main                   6.4.3         hcdf21d6_2          conda-forge
