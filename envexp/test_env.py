@@ -25,7 +25,7 @@ def close_logger_handlers(logger):
 
 
 # Configure the logging module to write logs to a file
-LOGFILE = Path(Path(__file__).parent.parent.absolute() /"test.log")
+LOGFILE = Path(Path(__file__).parent.parent.absolute() / "test.log")
 logging.basicConfig(
     filename=LOGFILE,
     level=logging.INFO,
@@ -34,24 +34,64 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def remove_environment():
+def determine_conda():
+    """Determines the conda executable to use (i.e. mm, mamba, or conda)."""
+
+    # Check if mamba is installed
+    try:
+        output = subprocess.run("mamba --version", shell=True, capture_output=True)
+        if len(output.stderr) > 0:
+            raise FileNotFoundError("No mamba executable found.")
+        return "mamba"
+    except Exception as e:
+        print(output.stderr.decode())
+        pass
+
+    # Check if micromamba is installed
+    try:
+        output = subprocess.run("micromamba --version", shell=True, capture_output=True)
+        if len(output.stderr) > 0:
+            raise FileNotFoundError("No micromamba executable found.")
+        return "micromamba"
+    except FileNotFoundError:
+        pass
+
+    # Check if conda is installed
+    try:
+        output = subprocess.run("conda --version", shell=True, capture_output=True)
+        if len(output.stderr) > 0:
+            raise FileNotFoundError("No conda executable found.")
+        return "conda"
+    except FileNotFoundError:
+        pass
+
+    raise FileNotFoundError("No conda executable found.")
+
+
+def remove_environment(conda_command):
     """Removes the conda environment created for the experiment."""
 
     # Remove the conda environment
-    subprocess.run("mamba env remove -n experiment", shell=True)
+    command = f"{conda_command} env remove -n experiment"
+    if conda_command == "micromamba":
+        command += " -y"
+    subprocess.run(f"{command}", shell=True)
 
 
-def create_environment():
+def create_environment(conda_command):
     """Creates a new conda environment with the required dependencies."""
 
     parent_dir = Path(__file__).resolve().parent
     environment_file = parent_dir / "environment.yml"
 
     # Create a new conda environment with the required dependencies
-    subprocess.run(f"mamba env create -f {environment_file.as_posix()}", shell=True)
+    command = f"{conda_command} env create -f {environment_file.as_posix()}"
+    if conda_command == "micromamba":
+        command += " -y"
+    subprocess.run(f"{command}", shell=True)
 
     # Log the dependencies
-    log_dependencies()
+    log_dependencies(conda_command=conda_command)
 
 
 def find_imports(library, input_dir, output_dir=None):
@@ -67,7 +107,7 @@ def find_imports(library, input_dir, output_dir=None):
 
     if output_dir is None:
         current_file = Path(__file__).resolve()
-        output_dir = f"{current_file.parent}\experiment"
+        output_dir = Path(current_file.parent) / "experiment"
 
     input_path = Path(input_dir)
     output_path = Path(
@@ -116,7 +156,7 @@ def find_imports(library, input_dir, output_dir=None):
                 initfile.write(f"from {output_path.name} import {python_file.stem}\n")
 
 
-def test_imports():
+def test_imports(conda_command):
 
     # Reset log file
     with open(LOGFILE, "w") as f:
@@ -125,7 +165,7 @@ def test_imports():
     # Run the test and log results
     try:
         output = subprocess.run(
-            'mamba run -n experiment python -c "import experiment"',
+            f'{conda_command} run -n experiment python -c "import experiment"',
             shell=True,
             capture_output=True,
             cwd=Path(__file__).resolve().parent,
@@ -142,7 +182,7 @@ def test_imports():
         raise e
 
 
-def log_dependencies():
+def log_dependencies(conda_command):
     """Logs the dependencies of the experiment environment to file."""
 
     def post_process_file(filename):
@@ -156,16 +196,22 @@ def log_dependencies():
                 if line.strip():  # only write the line if it's not empty
                     f.write(line)
 
-    mamba_filename = "mamba_list.txt"
+    mamba_filename = f"mamba_list.txt"
     pip_filename = "pip_freeze.txt"
 
     # mamba list > mamba_list.txt
     with open(mamba_filename, "w") as f:
-        subprocess.run("mamba run -n experiment mamba list", stdout=f)
+        subprocess.run(
+            f"{conda_command} run -n experiment {conda_command} list",
+            shell=True,
+            stdout=f,
+        )
 
     # pip freeze > pip_freeze.txt
     with open(pip_filename, "w") as f:
-        subprocess.run("mamba run -n experiment pip freeze", stdout=f)
+        subprocess.run(
+            f"{conda_command} run -n experiment pip freeze", shell=True, stdout=f
+        )
 
     # Remove empty lines from the files
     for filename in [mamba_filename, pip_filename]:
@@ -178,6 +224,7 @@ def commit_changes(commit_message: str):
     # Commit the changes to the experiment branch
     subprocess.run("git add .", shell=True)
     subprocess.run(f'git commit -m "{commit_message}"', shell=True)
+
 
 def create_parser():
     parser = argparse.ArgumentParser()
@@ -198,6 +245,7 @@ def create_parser():
     )
     return parser
 
+
 def parse_args(library=None, input_dir=None, commit_message=None):
     # Parse the command-line arguments
     parser = create_parser()
@@ -207,19 +255,29 @@ def parse_args(library=None, input_dir=None, commit_message=None):
     commit_message = commit_message or args.commit_message
     if (not library) or (not input_dir) or (not commit_message):
         parser.print_usage()
-        raise ValueError("Missing required arguments", f"{library=}", f"{input_dir=}", f"{commit_message=}")
+        raise ValueError(
+            "Missing required arguments",
+            f"{library=}",
+            f"{input_dir=}",
+            f"{commit_message=}",
+        )
+    print(args)
     return library, input_dir, commit_message
+
 
 def main(library=None, input_dir=None, commit_message=None):
 
     # Parse the command-line arguments
     library, input_dir, commit_message = parse_args(library, input_dir, commit_message)
 
+    # Determine the conda executable to use
+    conda_command = determine_conda()
+
     # Remove environment
-    remove_environment()
+    remove_environment(conda_command=conda_command)
 
     # Create a new conda environment
-    create_environment()
+    create_environment(conda_command=conda_command)
 
     # Find imports from qtpy in the given directory
     find_imports(
@@ -229,15 +287,19 @@ def main(library=None, input_dir=None, commit_message=None):
 
     try:
         # Test the imports
-        test_imports()
+        test_imports(conda_command=conda_command)
     except Exception as e:
         raise e
     finally:
         # Commit the changes
         close_logger_handlers(logger)
         wait_for_log_update(LOGFILE)
-        commit_changes(commit_message=commit_message)
+        # commit_changes(commit_message=commit_message)
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        library="qtpy",
+        input_dir="/Users/liezlmaree/Projects/sleap",
+        commit_message="Try PySide6 no restrictions",
+    )
