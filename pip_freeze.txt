@@ -1,5 +1,5 @@
--e git+https://github.com/roomrys/envexp@76e888b199ca1ec8159c87094ff0eb5a37c12adf#egg=experiment&subdirectory=envexp
+-e git+https://github.com/roomrys/envexp@b422694d51922ed558a14749bb121fc4e922d8c8#egg=experiment&subdirectory=envexp
 packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1718189413536/work
-pyside6==6.5.1.1
+pyside6==6.5.0
 QtPy @ file:///home/conda/feedstock_root/build_artifacts/qtpy_1698112029416/work
-shiboken6==6.5.1.1
+shiboken6==6.5.0
