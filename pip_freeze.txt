@@ -1,10 +1,5 @@
-backports.entry-points-selectable==1.1.1
-distlib==0.3.4
--e git+https://github.com/roomrys/py310_pyside6_qtpy@8c102f420527e90f38a89c819f199ed82d4b6fbc#egg=experiment&subdirectory=envexp
-filelock==3.4.0
+-e git+https://github.com/roomrys/envexp@746b241b98836c0f28362ddd92b88b4d5ea6dea7#egg=experiment&subdirectory=envexp
 packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1718189413536/work
-platformdirs==2.4.0
 PySide6==6.7.2
 QtPy @ file:///home/conda/feedstock_root/build_artifacts/qtpy_1698112029416/work
 shiboken6==6.7.2
-virtualenv==20.10.0
