@@ -1,4 +1,4 @@
-2024-07-19 09:00:37,177 ERROR test_env Imports failed!
+2024-07-19 09:04:45,652 ERROR test_env Imports failed!
 Traceback (most recent call last):
   File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 176, in test_imports
     raise Exception(error)
@@ -11,6 +11,6 @@ Exception: Traceback (most recent call last):
   File "/Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/qtpy/QtCharts.py", line 46, in <module>
     from PySide6 import QtCharts
 ImportError: dlopen(/Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/PySide6/QtCharts.abi3.so, 0x0002): Library not loaded: @rpath/libQt6Charts.6.dylib
-  Referenced from: <A4662103-DF14-397A-AE14-19C4BA4CCC28> /Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/PySide6/QtCharts.abi3.so
+  Referenced from: <84A1A77E-8811-34B3-947D-839D30EB5D89> /Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/PySide6/QtCharts.abi3.so
   Reason: tried: '/Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/PySide6/../../../libQt6Charts.6.dylib' (no such file), '/Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/PySide6/../../../libQt6Charts.6.dylib' (no such file), '/Users/liezlmaree/micromamba/envs/experiment/bin/../lib/libQt6Charts.6.dylib' (no such file), '/Users/liezlmaree/micromamba/envs/experiment/bin/../lib/libQt6Charts.6.dylib' (no such file), '/usr/local/lib/libQt6Charts.6.dylib' (no such file), '/usr/lib/libQt6Charts.6.dylib' (no such file, not in dyld cache)
 
