@@ -1,10 +1,12 @@
 List of packages in environment: "/Users/liezlmaree/micromamba/envs/experiment"
   Name                       Version       Build               Channel    
 ────────────────────────────────────────────────────────────────────────────
+  assimp                     5.2.3         hd77be17_1          conda-forge
+  boost-cpp                  1.74.0        h1cb353e_8          conda-forge
   bzip2                      1.0.8         h99b78c6_7          conda-forge
   ca-certificates            2024.7.4      hf0a4a13_0          conda-forge
-  cairo                      1.18.0        hc6c324b_2          conda-forge
-  double-conversion          3.3.0         h13dd4ca_0          conda-forge
+  cairo                      1.16.0        h73a0509_1014       conda-forge
+  double-conversion          3.2.0         hb7217d7_1          conda-forge
   expat                      2.6.2         hebf3989_0          conda-forge
   font-ttf-dejavu-sans-mono  2.37          hab24e00_0          conda-forge
   font-ttf-inconsolata       3.000         h77eed37_0          conda-forge
@@ -14,44 +16,56 @@ List of packages in environment: "/Users/liezlmaree/micromamba/envs/experiment"
   fonts-conda-ecosystem      1             0                   conda-forge
   fonts-conda-forge          1             0                   conda-forge
   freetype                   2.12.1        hadb7bae_2          conda-forge
+  gettext                    0.22.5        h8fbad5d_2          conda-forge
+  gettext-tools              0.22.5        h8fbad5d_2          conda-forge
+  glib                       2.74.1        hb5ab8b9_0          conda-forge
+  glib-tools                 2.74.1        hb5ab8b9_0          conda-forge
   graphite2                  1.3.13        hebf3989_1003       conda-forge
-  harfbuzz                   9.0.0         h1836168_0          conda-forge
-  icu                        73.2          hc8870d7_0          conda-forge
-  krb5                       1.21.3        h237132a_0          conda-forge
+  gst-plugins-base           1.20.3        h8b7775e_2          conda-forge
+  gstreamer                  1.20.3        hcb7b3dd_2          conda-forge
+  harfbuzz                   5.3.0         hddbc195_0          conda-forge
+  icu                        70.1          h6b3803e_0          conda-forge
+  jpeg                       9e            h1a8c8d9_3          conda-forge
+  krb5                       1.19.3        hf9b2bbe_0          conda-forge
   lerc                       4.0.0         h9a09cb3_0          conda-forge
-  libclang-cpp16             16.0.6        default_h5c12605_9  conda-forge
-  libclang13                 18.1.8        default_hfc66aa2_0  conda-forge
+  libasprintf                0.22.5        h8fbad5d_2          conda-forge
+  libasprintf-devel          0.22.5        h8fbad5d_2          conda-forge
+  libclang                   13.0.1        default_h0b16b43_6  conda-forge
   libcxx                     18.1.8        h167917d_0          conda-forge
-  libdeflate                 1.20          h93a5062_0          conda-forge
+  libdeflate                 1.14          h1a8c8d9_0          conda-forge
   libedit                    3.1.20191231  hc8eb9b7_2          conda-forge
   libexpat                   2.6.2         hebf3989_0          conda-forge
   libffi                     3.4.2         h3422bc3_5          conda-forge
-  libglib                    2.80.2        h535f939_0          conda-forge
+  libgettextpo               0.22.5        h8fbad5d_2          conda-forge
+  libgettextpo-devel         0.22.5        h8fbad5d_2          conda-forge
+  libglib                    2.74.1        h14ed1c1_0          conda-forge
   libiconv                   1.17          h0d3ecfb_2          conda-forge
   libintl                    0.22.5        h8fbad5d_2          conda-forge
-  libjpeg-turbo              3.0.0         hb547adb_1          conda-forge
-  libllvm16                  16.0.6        haab561b_3          conda-forge
-  libllvm18                  18.1.8        h5090b49_1          conda-forge
+  libintl-devel              0.22.5        h8fbad5d_2          conda-forge
+  libllvm13                  13.0.1        hfd59cb2_2          conda-forge
+  libogg                     1.3.5         h99b78c6_0          conda-forge
+  libopus                    1.3.1         h27ca646_1          conda-forge
   libpng                     1.6.43        h091b4b1_0          conda-forge
-  libpq                      16.3          h7afe498_0          conda-forge
+  libpq                      14.5          hb650857_3          conda-forge
   libsqlite                  3.46.0        hfb93653_0          conda-forge
-  libtiff                    4.6.0         h07db509_3          conda-forge
+  libtiff                    4.4.0         heb92581_5          conda-forge
+  libvorbis                  1.3.7         h9f76cd9_0          conda-forge
   libwebp-base               1.4.0         h93a5062_0          conda-forge
-  libxml2                    2.12.7        h9a80f22_3          conda-forge
-  libxslt                    1.1.39        h223e5b9_0          conda-forge
-  libzlib                    1.3.1         hfb2fe0b_1          conda-forge
-  mysql-common               8.3.0         h1687695_5          conda-forge
-  mysql-libs                 8.3.0         h0e80b4a_5          conda-forge
+  libxml2                    2.9.14        h9d8dfc2_4          conda-forge
+  libxslt                    1.1.35        ha8fb468_0          conda-forge
+  libzlib                    1.2.13        hfb2fe0b_6          conda-forge
+  mysql-common               8.0.32        hab468bb_0          conda-forge
+  mysql-libs                 8.0.32        hea58576_0          conda-forge
   ncurses                    6.5           hb89a1cb_0          conda-forge
-  openssl                    3.3.1         hfb2fe0b_2          conda-forge
+  openssl                    1.1.1w        h53f4e23_0          conda-forge
   packaging                  24.1          pyhd8ed1ab_0        conda-forge
-  pcre2                      10.43         h26f9a81_0          conda-forge
+  pcre2                      10.37         hcf5f1cc_1          conda-forge
   pip                        24.0          pyhd8ed1ab_0        conda-forge
   pixman                     0.43.4        hebf3989_0          conda-forge
-  pyside6                    6.7.2         py310ha38a60c_1     conda-forge
-  python                     3.10.14       h2469fbe_0_cpython  conda-forge
+  pyside6                    6.4.0         py310h6bbb1e2_4     conda-forge
+  python                     3.10.8        hf452327_0_cpython  conda-forge
   python_abi                 3.10          4_cp310             conda-forge
-  qt6-main                   6.7.2         hbe5e5a2_3          conda-forge
+  qt6-main                   6.4.0         h4be6a9e_3          conda-forge
   qtpy                       2.4.1         pyhd8ed1ab_0        conda-forge
   readline                   8.2           h92ec313_1          conda-forge
   setuptools                 71.0.1        pyhd8ed1ab_0        conda-forge
@@ -59,5 +73,5 @@ List of packages in environment: "/Users/liezlmaree/micromamba/envs/experiment"
   tzdata                     2024a         h0c530f3_0          conda-forge
   wheel                      0.43.0        pyhd8ed1ab_1        conda-forge
   xz                         5.2.6         h57fd34a_0          conda-forge
-  zlib                       1.3.1         hfb2fe0b_1          conda-forge
+  zlib                       1.2.13        hfb2fe0b_6          conda-forge
   zstd                       1.5.6         hb46c0d2_0          conda-forge

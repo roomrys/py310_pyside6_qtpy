@@ -4,7 +4,7 @@ channels:
 dependencies:
   - python=3.10
   - qtpy
-  - pyside6
+  - pyside6<6.4.1
   - pip
   - pip:
-    - -e . # Install the package in the current directory
+      - -e . # Install the package in the current directory
