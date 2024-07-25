@@ -156,6 +156,46 @@ def find_imports(library, input_dir, output_dir=None):
                 initfile.write(f"from {output_path.name} import {python_file.stem}\n")
 
 
+def user_test_code():
+    """User-defined test code to run after the imports have been tested."""
+    
+    from qtpy.QtWidgets import QApplication, QMainWindow
+
+    def create_app():
+        """Creates Qt application."""
+        app = QApplication([])
+        return app
+
+    app = create_app()
+
+    window = QMainWindow()
+    window.showMaximized()
+
+    app.exec_()
+
+
+def test_code(conda_command):
+    """Runs user-defined test code."""
+
+    # Run the test and log results
+    try:
+        output = subprocess.run(
+            f'{conda_command} run -n experiment python -c "import test_env; test_env.user_test_code()"',
+            shell=True,
+            capture_output=True,
+            cwd=Path(__file__).resolve().parent,
+        )
+        if output.returncode != 0:
+            error = output.stderr.decode()
+            error = error.replace("\r\r", "")
+            raise Exception(error)
+        print("Tests passed successfully!")
+        logger.info("Tests passed successfully!")
+    except Exception as e:
+        logger.exception("Tests failed!")
+        print("Tests failed!")
+        raise e
+
 def test_imports(conda_command):
 
     # Reset log file
@@ -288,18 +328,21 @@ def main(library=None, input_dir=None, commit_message=None):
     try:
         # Test the imports
         test_imports(conda_command=conda_command)
+
+        # Run user-defined test code
+        test_code(conda_command=conda_command)
     except Exception as e:
         raise e
     finally:
         # Commit the changes
         close_logger_handlers(logger)
         wait_for_log_update(LOGFILE)
-        commit_changes(commit_message=commit_message)
+        # commit_changes(commit_message=commit_message)
 
 
 if __name__ == "__main__":
     main(
         library="qtpy",
-        input_dir="/Users/liezlmaree/Projects/sleap",
-        commit_message="Try PySide6 no restrictions",
+        input_dir=r"C:\Users\Liezl\Projects\sleap-estimates-animal-poses\pull-requests\sleap",
+        commit_message="Run test code",
     )
