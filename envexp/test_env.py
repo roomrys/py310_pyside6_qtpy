@@ -138,7 +138,7 @@ def find_imports(library, input_dir, output_dir=None):
                     current_import = ""
                 continue
 
-            if line.startswith(f"from {library}"):
+            if line.startswith(f"from {library}") and not ("QtCharts" in line):
                 if line.strip().endswith("("):
                     multi_line_import = True
                     current_import = line.strip()
@@ -158,8 +158,9 @@ def find_imports(library, input_dir, output_dir=None):
 
 def user_test_code():
     """User-defined test code to run after the imports have been tested."""
-    
+
     from qtpy.QtWidgets import QApplication, QMainWindow
+    from qtpy.QtCore import QTimer
 
     def create_app():
         """Creates Qt application."""
@@ -170,6 +171,11 @@ def user_test_code():
 
     window = QMainWindow()
     window.showMaximized()
+
+    # Create a QTimer to close the application after a certain period
+    timer = QTimer()
+    timer.timeout.connect(app.quit)
+    timer.start(500)  # Close the app after 500 milliseconds
 
     app.exec_()
 
@@ -195,6 +201,7 @@ def test_code(conda_command):
         logger.exception("Tests failed!")
         print("Tests failed!")
         raise e
+
 
 def test_imports(conda_command):
 
@@ -344,5 +351,5 @@ if __name__ == "__main__":
     main(
         library="qtpy",
         input_dir=r"C:\Users\Liezl\Projects\sleap-estimates-animal-poses\pull-requests\sleap",
-        commit_message="Run test code",
+        commit_message="Try unconstrained PySide6, remove QtCharts import",
     )
