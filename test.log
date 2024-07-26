@@ -1,11 +1,2 @@
-2024-07-25 20:21:40,793 INFO __main__ Imports passed successfully!
-2024-07-25 20:21:42,492 ERROR __main__ Tests failed!
-Traceback (most recent call last):
-  File "c:\Users\Liezl\Projects\envexp\envexp\test_env.py", line 191, in test_code
-    raise Exception(error)
-Exception: qt.qpa.plugin: Could not find the Qt platform plugin "windows" in ""
-This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
-
-
-ERROR conda.cli.main_run:execute(47): `conda run python -c import test_env; test_env.user_test_code()` failed. (See above for error)
-
+2024-07-25 21:21:01,930 INFO __main__ Imports passed successfully!
+2024-07-25 21:21:04,368 INFO __main__ Tests passed successfully!
