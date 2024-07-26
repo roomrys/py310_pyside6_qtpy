@@ -1,16 +1,11 @@
-2024-07-18 11:05:44,161 ERROR test_env Imports failed!
+2024-07-25 20:21:40,793 INFO __main__ Imports passed successfully!
+2024-07-25 20:21:42,492 ERROR __main__ Tests failed!
 Traceback (most recent call last):
-  File "C:\Users\Liezl\Projects\py310_pyside6_qtpy\envexp\test_env.py", line 136, in test_imports
+  File "c:\Users\Liezl\Projects\envexp\envexp\test_env.py", line 191, in test_code
     raise Exception(error)
-Exception: Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-  File "C:\Users\Liezl\Projects\py310_pyside6_qtpy\envexp\experiment\__init__.py", line 26, in <module>
-    from experiment import monitor
-  File "C:\Users\Liezl\Projects\py310_pyside6_qtpy\envexp\experiment\monitor.py", line 2, in <module>
-    from qtpy.QtCharts import QtCharts
-  File "C:\Users\Liezl\miniconda3\envs\experiment\lib\site-packages\qtpy\QtCharts.py", line 46, in <module>
-    from PySide6 import QtCharts
-ImportError: DLL load failed while importing QtCharts: The specified module could not be found.
+Exception: qt.qpa.plugin: Could not find the Qt platform plugin "windows" in ""
+This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
 
-ERROR conda.cli.main_run:execute(47): `conda run python -c import experiment` failed. (See above for error)
+
+ERROR conda.cli.main_run:execute(47): `conda run python -c import test_env; test_env.user_test_code()` failed. (See above for error)
 
