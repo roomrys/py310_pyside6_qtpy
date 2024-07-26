@@ -1,5 +1,6 @@
 import argparse
 import logging
+import shutil
 import subprocess
 import time
 from pathlib import Path
@@ -93,6 +94,12 @@ def create_environment(conda_command):
     # Log the dependencies
     log_dependencies(conda_command=conda_command)
 
+def remove_imports(imports_dir):
+    """Removes the imports directory if it exists."""
+    imports_dir = Path(imports_dir)
+    if imports_dir.exists():
+        print("Removing imports directory...")
+        shutil.rmtree(imports_dir)
 
 def find_imports(library, input_dir, output_dir=None):
     """Finds all imports from a given library in Python files and copies them to test.
@@ -109,6 +116,9 @@ def find_imports(library, input_dir, output_dir=None):
         current_file = Path(__file__).resolve()
         output_dir = Path(current_file.parent) / "experiment"
 
+    # Remove the imports directory if it exists
+    remove_imports(imports_dir=output_dir)
+
     input_path = Path(input_dir)
     output_path = Path(
         output_dir
@@ -120,7 +130,7 @@ def find_imports(library, input_dir, output_dir=None):
         output_path / "__init__.py"
     )  # Create __init__.py file in output directory
 
-    for python_file in input_path.rglob("*.py"):  # Search recursively for Python files
+    for python_file in input_path.rglob("*.py"):  # Search recursively for Python files    
         with python_file.open("r") as infile:
             lines = infile.readlines()
 
