@@ -94,12 +94,14 @@ def create_environment(conda_command):
     # Log the dependencies
     log_dependencies(conda_command=conda_command)
 
+
 def remove_imports(imports_dir):
     """Removes the imports directory if it exists."""
     imports_dir = Path(imports_dir)
     if imports_dir.exists():
         print("Removing imports directory...")
         shutil.rmtree(imports_dir)
+
 
 def find_imports(library, input_dir, output_dir=None):
     """Finds all imports from a given library in Python files and copies them to test.
@@ -130,7 +132,7 @@ def find_imports(library, input_dir, output_dir=None):
         output_path / "__init__.py"
     )  # Create __init__.py file in output directory
 
-    for python_file in input_path.rglob("*.py"):  # Search recursively for Python files    
+    for python_file in input_path.rglob("*.py"):  # Search recursively for Python files
         with python_file.open("r") as infile:
             lines = infile.readlines()
 
@@ -168,7 +170,7 @@ def find_imports(library, input_dir, output_dir=None):
 
 def user_test_code():
     """User-defined test code to run after the imports have been tested."""
-    
+
     from qtpy.QtWidgets import QApplication, QMainWindow
 
     def create_app():
@@ -205,6 +207,7 @@ def test_code(conda_command):
         logger.exception("Tests failed!")
         print("Tests failed!")
         raise e
+
 
 def test_imports(conda_command):
 
@@ -282,11 +285,13 @@ def create_parser():
         "--library",
         type=str,
         help="The library to search for in the imports. E.g. 'qtpy'.",
+        default=None,
     )
     parser.add_argument(
         "--input-dir",
         type=str,
         help="The directory to search for Python files. E.g. 'C:\path\to\sleap'.",
+        default=None,
     )
     parser.add_argument(
         "--commit-message",
@@ -303,15 +308,14 @@ def parse_args(library=None, input_dir=None, commit_message=None):
     library = library or args.library
     input_dir = input_dir or args.input_dir
     commit_message = commit_message or args.commit_message
-    if (not library) or (not input_dir) or (not commit_message):
+    print(f"Arguments:\n{args}")
+
+    if commit_message is None:
         parser.print_usage()
         raise ValueError(
-            "Missing required arguments",
-            f"{library=}",
-            f"{input_dir=}",
-            f"{commit_message=}",
+            "Missing required argument --commit-message. "
+            "Please provide a commit message.",
         )
-    print(args)
     return library, input_dir, commit_message
 
 
@@ -330,14 +334,16 @@ def main(library=None, input_dir=None, commit_message=None):
     create_environment(conda_command=conda_command)
 
     # Find imports from qtpy in the given directory
-    find_imports(
-        library=library,
-        input_dir=input_dir,
-    )
+    if input_dir is not None and library is not None:
+        find_imports(
+            library=library,
+            input_dir=input_dir,
+        )
 
     try:
         # Test the imports
-        test_imports(conda_command=conda_command)
+        if input_dir is not None and library is not None:
+            test_imports(conda_command=conda_command)
 
         # Run user-defined test code
         test_code(conda_command=conda_command)
