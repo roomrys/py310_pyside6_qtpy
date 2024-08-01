@@ -171,6 +171,9 @@ def find_imports(library, input_dir, output_dir=None):
 def user_test_code():
     """User-defined test code to run after the imports have been tested."""
 
+    return
+
+    # Example test code that is not run since after return
     from qtpy.QtWidgets import QApplication, QMainWindow
 
     def create_app():
