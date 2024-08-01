@@ -214,10 +214,6 @@ def test_code(conda_command):
 
 def test_imports(conda_command):
 
-    # Reset log file
-    with open(LOGFILE, "w") as f:
-        pass
-
     # Run the test and log results
     try:
         output = subprocess.run(
@@ -332,6 +328,10 @@ def main(library=None, input_dir=None, commit_message=None):
 
     # Remove environment
     remove_environment(conda_command=conda_command)
+
+    # Reset log file
+    with open(LOGFILE, "w") as f:
+        pass
 
     # Create a new conda environment
     create_environment(conda_command=conda_command)
