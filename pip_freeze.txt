@@ -1,0 +1,6 @@
+-e git+https://github.com/roomrys/envexp@198867129d1879546f11b1683dc9b76b15968052#egg=experiment&subdirectory=envexp
+numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1721965842171/work/dist/numpy-2.0.1-cp310-cp310-macosx_11_0_arm64.whl#sha256=0f3783ed3ce85144da709611276735a0505983a24f2dab48b20c8e889318b424
+opencv-python==4.10.0
+opencv-python-headless==4.10.0
+PySide6==6.7.2
+shiboken6==6.7.2
