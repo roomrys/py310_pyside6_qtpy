@@ -1,4 +1,2 @@
-2024-08-01 18:49:44,202 ERROR test_env Environment created successfully!
-NoneType: None
-2024-08-01 18:49:45,329 ERROR test_env Tests passed successfully!
-NoneType: None
+2024-08-01 19:13:31,496 INFO test_env Environment created successfully!
+2024-08-01 19:13:32,577 INFO test_env Tests passed successfully!
