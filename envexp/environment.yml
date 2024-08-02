@@ -4,11 +4,7 @@ channels:
   - sleap-deps/label/dev
 dependencies:
   - python=3.10
-  - imageio
-  - opencv
-  - pillow
-  - pyside6 >=6.4.1
-  - scikit-image
+  - opencv=4.5.3=py310hb6292c7_8
   - tensorflow=2.9.2a0
   - pip
   - pip:
