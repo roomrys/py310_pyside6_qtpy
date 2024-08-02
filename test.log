@@ -1,2 +1,41 @@
-2024-08-01 19:13:31,496 INFO test_env Environment created successfully!
-2024-08-01 19:13:32,577 INFO test_env Tests passed successfully!
+2024-08-01 19:37:36,147 ERROR test_env Failed to create environment!
+Traceback (most recent call last):
+  File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 220, in run_and_log
+    raise Exception(error)
+Exception: error    libmamba Could not solve for environment specs
+    The following packages are incompatible
+    ├─ opencv 4.10.0**  is installable with the potential options
+    │  ├─ opencv 4.10.0 would require
+    │  │  └─ libprotobuf >=4.25.3,<4.25.4.0a0 , which can be installed;
+    │  ├─ opencv 4.10.0 would require
+    │  │  └─ python_abi 3.11.* *_cp311, which can be installed;
+    │  ├─ opencv 4.10.0 would require
+    │  │  └─ python_abi 3.12.* *_cp312, which can be installed;
+    │  ├─ opencv 4.10.0 would require
+    │  │  └─ python_abi 3.8.* *_cp38, which can be installed;
+    │  └─ opencv 4.10.0 would require
+    │     └─ python_abi 3.9.* *_cp39, which can be installed;
+    ├─ python 3.10**  is not installable because it requires
+    │  └─ python_abi 3.10.* *_cp310, which conflicts with any installable versions previously reported;
+    └─ tensorflow 2.9.2a0**  is installable and it requires
+       └─ protobuf <3.20,>=3.9.2  with the potential options
+          ├─ protobuf [3.13.0.1|3.14.0|...|3.19.6] would require
+          │  └─ python_abi 3.8.* *_cp38, which can be installed;
+          ├─ protobuf [3.13.0.1|3.14.0|...|3.19.6] would require
+          │  └─ python_abi 3.9.* *_cp39, which can be installed;
+          ├─ protobuf 3.18.1 would require
+          │  └─ libprotobuf 3.18.1.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.18.3 would require
+          │  └─ libprotobuf 3.18.3.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.19.1 would require
+          │  └─ libprotobuf 3.19.1.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.19.2 would require
+          │  └─ libprotobuf 3.19.2.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.19.3 would require
+          │  └─ libprotobuf 3.19.3.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.19.4 would require
+          │  └─ libprotobuf 3.19.4.* , which conflicts with any installable versions previously reported;
+          └─ protobuf 3.19.6 would require
+             └─ libprotobuf 3.19.6.* , which conflicts with any installable versions previously reported.
+critical libmamba Could not solve for environment specs
+
