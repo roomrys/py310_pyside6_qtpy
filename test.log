@@ -1,4 +1,4 @@
-2024-08-02 10:04:08,116 ERROR test_env Failed to create environment!
+2024-08-02 10:06:11,642 ERROR test_env Failed to create environment!
 Traceback (most recent call last):
   File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 220, in run_and_log
     raise Exception(error)
@@ -6,37 +6,20 @@ Exception: error    libmamba Could not solve for environment specs
     The following packages are incompatible
     ├─ opencv 4.5.3**  is installable with the potential options
     │  ├─ opencv 4.5.3 would require
-    │  │  └─ libopencv 4.5.3 py31hc2a8503_6, which requires
-    │  │     ├─ harfbuzz >=3.1.2,<4.0a0 , which requires
-    │  │     │  └─ icu >=69.1,<70.0a0 , which can be installed;
-    │  │     └─ hdf5 >=1.12.1,<1.12.2.0a0 , which requires
-    │  │        └─ zlib >=1.2.11,<1.3.0a0 , which can be installed;
-    │  ├─ opencv 4.5.3 would require
-    │  │  └─ libopencv 4.5.3 py31ha7d2a18_7, which requires
-    │  │     ├─ harfbuzz >=3.1.2,<4.0a0 , which can be installed (as previously explained);
-    │  │     └─ libprotobuf >=3.19.1,<3.20.0a0  with the potential options
-    │  │        ├─ libprotobuf 3.19.6, which can be installed;
-    │  │        └─ libprotobuf [3.18.1|3.19.1|3.19.2|3.19.3|3.19.4] would require
-    │  │           └─ zlib >=1.2.11,<1.3.0a0 , which can be installed;
+    │  │  └─ libopencv [4.5.3 py31ha7d2a18_7|4.5.3 py31hc2a8503_6], which requires
+    │  │     └─ harfbuzz >=3.1.2,<4.0a0 , which requires
+    │  │        └─ icu >=69.1,<70.0a0 , which can be installed;
     │  ├─ opencv 4.5.3 would require
     │  │  └─ python_abi 3.8.* *_cp38, which can be installed;
     │  ├─ opencv 4.5.3 would require
     │  │  └─ python_abi 3.9.* *_cp39, which can be installed;
     │  └─ opencv 4.5.3 would require
     │     └─ libopencv 4.5.3 py310h3acb349_8, which requires
-    │        ├─ harfbuzz >=6.0.0,<7.0a0  but there are no viable options
-    │        │  ├─ harfbuzz 6.0.0 would require
-    │        │  │  └─ icu >=72.1,<73.0a0 , which conflicts with any installable versions previously reported;
-    │        │  └─ harfbuzz 6.0.0 would require
-    │        │     └─ icu >=70.1,<71.0a0 , which conflicts with any installable versions previously reported;
-    │        └─ libprotobuf >=3.21.12,<3.22.0a0 , which conflicts with any installable versions previously reported;
-    ├─ pyside6 >=6.4.1  is installable with the potential options
-    │  ├─ pyside6 [6.4.1|6.4.2] would require
-    │  │  └─ qt6-main [>=6.4.1,<6.5.0a0 |>=6.4.2,<6.5.0a0 ] but there are no viable options
-    │  │     ├─ qt6-main [6.4.1|6.4.2] would require
-    │  │     │  ├─ icu >=70.1,<71.0a0 , which conflicts with any installable versions previously reported;
-    │  │     │  └─ openssl >=1.1.1s,<1.1.2a , which can be installed;
-    │  │     ├─ qt6-main [6.4.1|6.4.2] would require
+    │        └─ libprotobuf >=3.21.12,<3.22.0a0 , which can be installed;
+    ├─ pyside6 6.4.2**  is installable with the potential options
+    │  ├─ pyside6 6.4.2 would require
+    │  │  └─ qt6-main >=6.4.2,<6.5.0a0  but there are no viable options
+    │  │     ├─ qt6-main 6.4.2 would require
     │  │     │  ├─ icu >=70.1,<71.0a0 , which conflicts with any installable versions previously reported;
     │  │     │  └─ libpq >=15.1,<16.0a0  with the potential options
     │  │     │     ├─ libpq 15.1 would require
@@ -53,14 +36,17 @@ Exception: error    libmamba Could not solve for environment specs
     │  │     │     │  └─ openssl >=3.2.0,<3.2.0a0 , which does not exist (perhaps a missing channel);
     │  │     │     ├─ libpq [15.4|15.5|15.6|15.7] would require
     │  │     │     │  └─ libxml2 [>=2.12.3,<3.0.0a0 |>=2.12.4,<3.0a0 |>=2.12.5,<3.0a0 |>=2.12.6,<3.0a0 ] with the potential options
-    │  │     │     │     ├─ libxml2 [2.12.3|2.12.4|2.12.5|2.12.6|2.12.7] would require
-    │  │     │     │     │  └─ icu >=73.2,<74.0a0 , which conflicts with any installable versions previously reported;
-    │  │     │     │     └─ libxml2 2.12.7 would require
-    │  │     │     │        └─ icu >=75.1,<76.0a0 , which can be installed;
+    │  │     │     │     ├─ libxml2 2.12.7 would require
+    │  │     │     │     │  └─ icu >=75.1,<76.0a0 , which can be installed;
+    │  │     │     │     └─ libxml2 [2.12.3|2.12.4|2.12.5|2.12.6|2.12.7] would require
+    │  │     │     │        └─ icu >=73.2,<74.0a0 , which can be installed;
     │  │     │     ├─ libpq 15.4 would require
     │  │     │     │  └─ openssl >=3.1.2,<3.2.0a0 , which can be installed;
     │  │     │     └─ libpq 15.4 would require
     │  │     │        └─ openssl >=3.1.3,<3.2.0a0 , which can be installed;
+    │  │     ├─ qt6-main 6.4.2 would require
+    │  │     │  ├─ icu >=70.1,<71.0a0 , which conflicts with any installable versions previously reported;
+    │  │     │  └─ openssl >=1.1.1s,<1.1.2a , which can be installed;
     │  │     ├─ qt6-main [6.4.2|6.4.3] would require
     │  │     │  ├─ icu >=70.1,<71.0a0 , which conflicts with any installable versions previously reported;
     │  │     │  └─ libpq >=15.2,<16.0a0  with the potential options
@@ -71,7 +57,7 @@ Exception: error    libmamba Could not solve for environment specs
     │  │     │     ├─ libpq [15.4|15.5|15.6|15.7], which can be installed (as previously explained);
     │  │     │     ├─ libpq 15.4, which can be installed (as previously explained);
     │  │     │     └─ libpq 15.4, which can be installed (as previously explained);
-    │  │     └─ qt6-main [6.4.3|6.5.0] would require
+    │  │     └─ qt6-main 6.4.3 would require
     │  │        ├─ icu >=72.1,<73.0a0 , which conflicts with any installable versions previously reported;
     │  │        └─ libpq >=15.2,<16.0a0  with the potential options
     │  │           ├─ libpq 15.2, which can be installed (as previously explained);
@@ -81,147 +67,40 @@ Exception: error    libmamba Could not solve for environment specs
     │  │           ├─ libpq [15.4|15.5|15.6|15.7], which can be installed (as previously explained);
     │  │           ├─ libpq 15.4, which can be installed (as previously explained);
     │  │           └─ libpq 15.4, which can be installed (as previously explained);
-    │  ├─ pyside6 6.4.1 would require
-    │  │  └─ qt6-main >=6.4.0,<6.5.0a0  but there are no viable options
-    │  │     ├─ qt6-main 6.4.0 would require
-    │  │     │  ├─ icu >=70.1,<71.0a0 , which conflicts with any installable versions previously reported;
-    │  │     │  └─ openssl >=1.1.1q,<1.1.2a , which can be installed;
-    │  │     ├─ qt6-main [6.4.1|6.4.2], which cannot be installed (as previously explained);
-    │  │     ├─ qt6-main [6.4.1|6.4.2], which cannot be installed (as previously explained);
-    │  │     ├─ qt6-main [6.4.2|6.4.3], which cannot be installed (as previously explained);
-    │  │     └─ qt6-main [6.4.3|6.5.0], which cannot be installed (as previously explained);
-    │  ├─ pyside6 [6.4.1|6.4.2|...|6.7.2] would require
+    │  ├─ pyside6 6.4.2 would require
     │  │  └─ python_abi 3.11.* *_cp311, which can be installed;
-    │  ├─ pyside6 [6.4.1|6.4.2|...|6.6.2] would require
+    │  ├─ pyside6 6.4.2 would require
     │  │  └─ python_abi 3.8.* *_cp38, which can be installed;
-    │  ├─ pyside6 [6.4.1|6.4.2|...|6.7.2] would require
-    │  │  └─ python_abi 3.9.* *_cp39, which can be installed;
-    │  ├─ pyside6 6.4.3 would require
-    │  │  └─ qt6-main >=6.4.3,<6.5.0a0 , which cannot be installed (as previously explained);
-    │  ├─ pyside6 6.5.0 would require
-    │  │  └─ qt6-main >=6.5.0,<6.6.0a0  but there are no viable options
-    │  │     ├─ qt6-main [6.4.3|6.5.0], which cannot be installed (as previously explained);
-    │  │     ├─ qt6-main [6.5.0|6.5.1|6.5.2] would require
-    │  │     │  ├─ icu >=72.1,<73.0a0 , which conflicts with any installable versions previously reported;
-    │  │     │  └─ libpq >=15.3,<16.0a0  with the potential options
-    │  │     │     ├─ libpq 15.3, which can be installed (as previously explained);
-    │  │     │     ├─ libpq 15.3, which can be installed (as previously explained);
-    │  │     │     ├─ libpq 15.4, which cannot be installed (as previously explained);
-    │  │     │     ├─ libpq [15.4|15.5|15.6|15.7], which can be installed (as previously explained);
-    │  │     │     ├─ libpq 15.4, which can be installed (as previously explained);
-    │  │     │     └─ libpq 15.4, which can be installed (as previously explained);
-    │  │     ├─ qt6-main [6.5.2|6.5.3|...|6.7.1] would require
-    │  │     │  └─ icu >=73.2,<74.0a0 , which conflicts with any installable versions previously reported;
-    │  │     └─ qt6-main 6.5.2 would require
-    │  │        ├─ icu >=72.1,<73.0a0 , which conflicts with any installable versions previously reported;
-    │  │        └─ libpq >=15.4,<16.0a0  with the potential options
-    │  │           ├─ libpq 15.4, which cannot be installed (as previously explained);
-    │  │           ├─ libpq [15.4|15.5|15.6|15.7], which can be installed (as previously explained);
-    │  │           ├─ libpq 15.4, which can be installed (as previously explained);
-    │  │           └─ libpq 15.4, which can be installed (as previously explained);
-    │  ├─ pyside6 [6.5.1|6.5.1.1|6.5.2] would require
-    │  │  └─ qt6-main [>=6.5.1,<6.6.0a0 |>=6.5.2,<6.6.0a0 ], which cannot be installed (as previously explained);
-    │  ├─ pyside6 [6.5.3|6.6.0|...|6.7.1] would require
-    │  │  └─ qt6-main [6.6.1.* |6.6.2.* |...|>=6.6.0,<6.6.1a0 ], which cannot be installed (as previously explained);
-    │  ├─ pyside6 [6.6.0|6.6.1|...|6.7.2] would require
-    │  │  └─ python_abi 3.12.* *_cp312, which can be installed;
-    │  └─ pyside6 6.7.2 would require
-    │     └─ qt6-main >=6.7.2,<6.8.0a0  but there are no viable options
-    │        ├─ qt6-main 6.7.2 would require
-    │        │  ├─ icu >=75.1,<76.0a0 , which can be installed;
-    │        │  └─ libzlib >=1.3.1,<2.0a0  but there are no viable options
-    │        │     ├─ libzlib 1.3.1 would require
-    │        │     │  └─ zlib 1.3.1 *_0, which conflicts with any installable versions previously reported;
-    │        │     └─ libzlib 1.3.1 would require
-    │        │        └─ zlib 1.3.1 *_1, which conflicts with any installable versions previously reported;
-    │        └─ qt6-main 6.7.2 would require
-    │           ├─ icu >=73.2,<74.0a0 , which conflicts with any installable versions previously reported;
-    │           └─ libzlib >=1.3.1,<2.0a0 , which cannot be installed (as previously explained);
+    │  └─ pyside6 6.4.2 would require
+    │     └─ python_abi 3.9.* *_cp39, which can be installed;
     ├─ python 3.10**  is not installable because there are no viable options
     │  ├─ python [3.10.0|3.10.1|...|3.10.9] would require
+    │  │  └─ python_abi 3.10.* *_cp310, which conflicts with any installable versions previously reported;
+    │  ├─ python 3.10.13 would require
+    │  │  ├─ openssl >=3.2.0,<4.0a0 , which conflicts with any installable versions previously reported;
     │  │  └─ python_abi 3.10.* *_cp310, which conflicts with any installable versions previously reported;
     │  └─ python 3.10.14 would require
     │     ├─ openssl >=3.2.1,<4.0a0 , which conflicts with any installable versions previously reported;
     │     └─ python_abi 3.10.* *_cp310, which conflicts with any installable versions previously reported;
     └─ tensorflow 2.9.2a0**  is installable and it requires
-       ├─ grpcio <2.0,>=1.24.3  with the potential options
-       │  ├─ grpcio [1.41.1|1.42.0|...|1.46.3] would require
-       │  │  └─ zlib >=1.2.11,<1.3.0a0 , which can be installed;
-       │  ├─ grpcio [1.33.2|1.34.0|...|1.62.2] would require
-       │  │  └─ python_abi 3.8.* *_cp38, which can be installed;
-       │  ├─ grpcio [1.33.2|1.34.0|...|1.62.2] would require
-       │  │  └─ python_abi 3.9.* *_cp39, which can be installed;
-       │  ├─ grpcio [1.46.3|1.46.4|...|1.48.1] would require
-       │  │  ├─ grpc-cpp 1.46.3.* , which requires
-       │  │  │  └─ libprotobuf >=3.20.1,<3.21.0a0 , which conflicts with any installable versions previously reported;
-       │  │  └─ libprotobuf >=3.20.1,<3.21.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.46.4|1.47.1|1.48.0|1.48.1] would require
-       │  │  └─ libprotobuf >=3.21.5,<3.22.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.46.4|1.47.1|1.48.1] would require
-       │  │  └─ libprotobuf >=3.21.8,<3.22.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.46.4|1.47.1|...|1.62.2] would require
-       │  │  └─ python_abi 3.11.* *_cp311, which can be installed;
-       │  ├─ grpcio 1.49.1 would require
-       │  │  └─ libprotobuf >=3.21.9,<3.22.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.46.4|1.47.1|...|1.54.3] would require
-       │  │  ├─ libgrpc [1.51.1 h1208df7_2|1.51.1 he98ff75_3|...|1.54.3 h0a338ca_0], which requires
-       │  │  │  └─ libprotobuf >=3.21.12,<3.22.0a0 , which conflicts with any installable versions previously reported;
-       │  │  └─ libprotobuf >=3.21.12,<3.22.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.50.1|1.51.1] would require
-       │  │  └─ libprotobuf >=3.21.10,<3.22.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio 1.55.0 would require
-       │  │  └─ libgrpc 1.55.0 hc384137_0, which requires
-       │  │     └─ libprotobuf >=4.23.1,<4.24.0a0  but there are no viable options
-       │  │        ├─ libprotobuf 4.23.4 would require
-       │  │        │  └─ libabseil >=20230125.3,<20230126.0a0 , which can be installed;
-       │  │        ├─ libprotobuf 4.23.4 conflicts with any installable versions previously reported;
-       │  │        ├─ libprotobuf 4.23.3 conflicts with any installable versions previously reported;
-       │  │        ├─ libprotobuf 4.23.2 conflicts with any installable versions previously reported;
-       │  │        └─ libprotobuf 4.23.1 conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.55.0|1.55.1|1.56.0] would require
-       │  │  └─ libgrpc [1.55.0 hc384137_1|1.55.1 hc384137_0|1.55.1 hc384137_1|1.56.0 he248d5f_1], which requires
-       │  │     └─ libprotobuf >=4.23.2,<4.23.3.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.56.0|1.56.1|1.56.2|1.57.0] would require
-       │  │  └─ libgrpc [1.56.0 h9075ed4_2|1.56.1 h9075ed4_0|1.56.2 h9075ed4_0|1.56.2 h9075ed4_1|1.57.0 h9075ed4_0], which requires
-       │  │     └─ libprotobuf >=4.23.3,<4.23.4.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.57.0|1.57.1] would require
-       │  │  └─ libgrpc [1.57.0 h02f74b2_3|1.57.0 hbf2b313_2|1.57.1 h02f74b2_0], which requires
-       │  │     ├─ libabseil >=20230802.1,<20230803.0a0 , which conflicts with any installable versions previously reported;
-       │  │     └─ libprotobuf >=4.23.4,<4.23.5.0a0  but there are no viable options
-       │  │        ├─ libprotobuf 4.23.4, which cannot be installed (as previously explained);
-       │  │        └─ libprotobuf 4.23.4 conflicts with any installable versions previously reported;
-       │  ├─ grpcio 1.57.0 would require
-       │  │  └─ libgrpc 1.57.0 hdbe17d8_1, which requires
-       │  │     └─ libprotobuf >=4.23.4,<4.23.5.0a0  but there are no viable options
-       │  │        ├─ libprotobuf 4.23.4, which cannot be installed (as previously explained);
-       │  │        └─ libprotobuf 4.23.4 conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.57.0|1.57.1|...|1.62.2] would require
-       │  │  └─ python_abi 3.12.* *_cp312, which can be installed;
-       │  ├─ grpcio [1.58.1|1.58.2] would require
-       │  │  └─ libgrpc [1.58.1 h19be7b0_2|1.58.1 h5c97886_1|1.58.1 h941e00e_0|1.58.2 h19be7b0_0], which requires
-       │  │     └─ libprotobuf >=4.24.3,<4.24.4.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.59.1|1.59.2|1.59.3|1.60.0] would require
-       │  │  └─ libgrpc [1.59.1 hbcf6334_0|1.59.2 hbcf6334_0|1.59.3 h9560976_0|1.59.3 hbcf6334_0|1.60.0 hbcf6334_0], which requires
-       │  │     └─ libprotobuf >=4.24.4,<4.24.5.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.60.0|1.60.1] would require
-       │  │  └─ libgrpc [1.60.0 hfc68871_0|1.60.0 hfc68871_1|1.60.1 hfc68871_0], which requires
-       │  │     └─ libprotobuf >=4.25.1,<4.25.2.0a0 , which conflicts with any installable versions previously reported;
-       │  ├─ grpcio [1.61.0|1.61.1|1.61.2] would require
-       │  │  └─ libgrpc [1.61.0 hf54c306_0|1.61.1 h9c2137f_1|1.61.1 hf54c306_0|1.61.2 h9c2137f_0], which requires
-       │  │     └─ libprotobuf >=4.25.2,<4.25.3.0a0 , which conflicts with any installable versions previously reported;
-       │  └─ grpcio [1.62.0|1.62.1|1.62.2] would require
-       │     └─ libgrpc [1.62.0 h9c18a4f_0|1.62.1 h9c18a4f_0|1.62.2 h9c18a4f_0], which requires
-       │        └─ libprotobuf >=4.25.3,<4.25.4.0a0 , which conflicts with any installable versions previously reported;
        └─ protobuf <3.20,>=3.9.2  with the potential options
+          ├─ protobuf 3.18.1 would require
+          │  └─ libprotobuf 3.18.1.* , which conflicts with any installable versions previously reported;
           ├─ protobuf [3.13.0.1|3.14.0|...|3.19.6] would require
           │  └─ python_abi 3.8.* *_cp38, which can be installed;
           ├─ protobuf [3.13.0.1|3.14.0|...|3.19.6] would require
           │  └─ python_abi 3.9.* *_cp39, which can be installed;
-          ├─ protobuf [3.18.1|3.19.1|3.19.2|3.19.3|3.19.4] would require
-          │  └─ libprotobuf [3.18.1.* |3.19.1.* |3.19.2.* |3.19.3.* |3.19.4.* ], which can be installed (as previously explained);
           ├─ protobuf 3.18.3 would require
-          │  └─ libprotobuf 3.18.3.* , which can be installed;
+          │  └─ libprotobuf 3.18.3.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.19.1 would require
+          │  └─ libprotobuf 3.19.1.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.19.2 would require
+          │  └─ libprotobuf 3.19.2.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.19.3 would require
+          │  └─ libprotobuf 3.19.3.* , which conflicts with any installable versions previously reported;
+          ├─ protobuf 3.19.4 would require
+          │  └─ libprotobuf 3.19.4.* , which conflicts with any installable versions previously reported;
           └─ protobuf 3.19.6 would require
-             └─ libprotobuf 3.19.6.* , which can be installed.
+             └─ libprotobuf 3.19.6.* , which conflicts with any installable versions previously reported.
 critical libmamba Could not solve for environment specs
 
