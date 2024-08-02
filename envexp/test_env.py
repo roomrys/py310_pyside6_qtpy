@@ -89,7 +89,10 @@ def create_environment(conda_command):
     command = f"{conda_command} env create -f {environment_file.as_posix()}"
     if conda_command == "micromamba":
         command += " -y"
-    subprocess.run(f"{command}", shell=True)
+
+    fail_message = "Failed to create environment!"
+    pass_message = "Environment created successfully!"
+    run_and_log(command=command, fail_message=fail_message, pass_message=pass_message)
 
     # Log the dependencies
     log_dependencies(conda_command=conda_command)
@@ -336,19 +339,17 @@ def main(library=None, input_dir=None, commit_message=None):
     with open(LOGFILE, "w") as f:
         pass
 
-    # Create a new conda environment
-    create_environment(conda_command=conda_command)
-
-    # Find imports from qtpy in the given directory
-    if input_dir is not None and library is not None:
-        find_imports(
-            library=library,
-            input_dir=input_dir,
-        )
-
     try:
+        # Create a new conda environment
+        create_environment(conda_command=conda_command)
+
         # Test the imports
         if input_dir is not None and library is not None:
+            # Find imports from library in the given directory
+            find_imports(
+                library=library,
+                input_dir=input_dir,
+            )
             test_imports(conda_command=conda_command)
 
         # Run user-defined test code
