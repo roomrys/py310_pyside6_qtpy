@@ -1,0 +1,18 @@
+-e git+https://github.com/roomrys/envexp@e0bd2c8253d2b6190326e4c11bbc72259eef457d#egg=experiment&subdirectory=envexp
+imagecodecs @ file:///Users/runner/miniforge3/conda-bld/imagecodecs_1719236097776/work
+imageio @ file:///home/conda/feedstock_root/build_artifacts/imageio_1719234999090/work
+importlib_metadata @ file:///home/conda/feedstock_root/build_artifacts/importlib-metadata_1721856510709/work
+lazy_loader @ file:///home/conda/feedstock_root/build_artifacts/lazy_loader_1712342969017/work
+networkx @ file:///home/conda/feedstock_root/build_artifacts/networkx_1712540363324/work
+numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1721965842171/work/dist/numpy-2.0.1-cp310-cp310-macosx_11_0_arm64.whl#sha256=0f3783ed3ce85144da709611276735a0505983a24f2dab48b20c8e889318b424
+opencv-python==4.10.0
+opencv-python-headless==4.10.0
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1718189413536/work
+pillow @ file:///Users/runner/miniforge3/conda-bld/pillow_1719903567335/work
+PySide6==6.7.2
+PyWavelets==1.6.0
+scikit-image @ file:///Users/runner/miniforge3/conda-bld/scikit-image_1719499476008/work/dist/scikit_image-0.24.0-cp310-cp310-macosx_11_0_arm64.whl#sha256=5c219f159d2c4e91ea7c5bea72e6fa8572aa8dcbb759f55fc3d59be1e1a6068a
+scipy @ file:///Users/runner/miniforge3/conda-bld/scipy-split_1720323036795/work/dist/scipy-1.14.0-cp310-cp310-macosx_11_0_arm64.whl#sha256=b939069a5cdf606593597be906da29711202c602e3f753e5fbc9256c5a5e562d
+shiboken6==6.7.2
+tifffile @ file:///home/conda/feedstock_root/build_artifacts/tifffile_1721813262608/work
+zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1718013267051/work
