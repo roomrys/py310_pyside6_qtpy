@@ -189,49 +189,52 @@ def user_test_code():
     app.exec_()
 
 
+def run_and_log(command, fail_message=None, pass_message=None):
+    """Runs a command and logs the output."""
+
+    if fail_message is None:
+        fail_message = "Failed!"
+
+    if pass_message is None:
+        pass_message = "Passed!"
+
+    try:
+        output = subprocess.run(
+            command,
+            shell=True,
+            capture_output=True,
+            cwd=Path(__file__).resolve().parent,
+        )
+        if output.returncode != 0:
+            error = output.stderr.decode()
+            error = error.replace("\r\r", "")
+            raise Exception(error)
+        print(output.stdout.decode())
+        logger.info(output.stdout.decode())
+        logger.exception(pass_message)
+        print(pass_message)
+    except Exception as e:
+        logger.exception(fail_message)
+        print(fail_message)
+        raise e
+
+
 def test_code(conda_command):
     """Runs user-defined test code."""
 
-    # Run the test and log results
-    try:
-        output = subprocess.run(
-            f'{conda_command} run -n experiment python -c "import test_env; test_env.user_test_code()"',
-            shell=True,
-            capture_output=True,
-            cwd=Path(__file__).resolve().parent,
-        )
-        if output.returncode != 0:
-            error = output.stderr.decode()
-            error = error.replace("\r\r", "")
-            raise Exception(error)
-        print("Tests passed successfully!")
-        logger.info("Tests passed successfully!")
-    except Exception as e:
-        logger.exception("Tests failed!")
-        print("Tests failed!")
-        raise e
+    fail_message = "Tests failed!"
+    pass_message = "Tests passed successfully!"
+    command = f'{conda_command} run -n experiment python -c "import test_env; test_env.user_test_code()"'
+    run_and_log(command=command, fail_message=fail_message, pass_message=pass_message)
 
 
 def test_imports(conda_command):
+    """Tests the imports in the experiment environment."""
 
-    # Run the test and log results
-    try:
-        output = subprocess.run(
-            f'{conda_command} run -n experiment python -c "import experiment"',
-            shell=True,
-            capture_output=True,
-            cwd=Path(__file__).resolve().parent,
-        )
-        if output.returncode != 0:
-            error = output.stderr.decode()
-            error = error.replace("\r\r", "")
-            raise Exception(error)
-        print("Imports passed successfully!")
-        logger.info("Imports passed successfully!")
-    except Exception as e:
-        logger.exception("Imports failed!")
-        print("Imports failed!")
-        raise e
+    fail_message = "Imports failed!"
+    pass_message = "Imports passed successfully!"
+    command = f'{conda_command} run -n experiment python -c "import experiment"'
+    run_and_log(command=command, fail_message=fail_message, pass_message=pass_message)
 
 
 def log_dependencies(conda_command):
