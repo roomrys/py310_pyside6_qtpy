@@ -4,7 +4,7 @@ channels:
   - sleap-deps/label/dev
 dependencies:
   - python=3.10
-  - opencv >=4.7.0,<4.8
+  - opencv >=4.6.0,<4.7
   - pyside6 >=6.4.1
   - pip
   - pip:
