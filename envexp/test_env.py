@@ -92,10 +92,16 @@ def create_environment(conda_command):
 
     fail_message = "Failed to create environment!"
     pass_message = "Environment created successfully!"
-    run_and_log(command=command, fail_message=fail_message, pass_message=pass_message)
 
-    # Log the dependencies
-    log_dependencies(conda_command=conda_command)
+    try:
+        run_and_log(
+            command=command, fail_message=fail_message, pass_message=pass_message
+        )
+    except Exception as e:
+        raise e
+    finally:
+        # Log the dependencies
+        log_dependencies(conda_command=conda_command)
 
 
 def remove_imports(imports_dir):
@@ -213,7 +219,6 @@ def run_and_log(command, fail_message=None, pass_message=None):
             error = error.replace("\r\r", "")
             raise Exception(error)
         print(output.stdout.decode())
-        logger.info(output.stdout.decode())
         logger.exception(pass_message)
         print(pass_message)
     except Exception as e:
@@ -256,6 +261,11 @@ def log_dependencies(conda_command):
 
     mamba_filename = f"mamba_list.txt"
     pip_filename = "pip_freeze.txt"
+
+    # Reset the files
+    for filename in [mamba_filename, pip_filename]:
+        with open(filename, "w") as f:
+            pass
 
     # mamba list > mamba_list.txt
     with open(mamba_filename, "w") as f:
