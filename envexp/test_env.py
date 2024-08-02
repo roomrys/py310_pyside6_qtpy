@@ -219,7 +219,7 @@ def run_and_log(command, fail_message=None, pass_message=None):
             error = error.replace("\r\r", "")
             raise Exception(error)
         print(output.stdout.decode())
-        logger.exception(pass_message)
+        logger.info(pass_message)
         print(pass_message)
     except Exception as e:
         logger.exception(fail_message)
