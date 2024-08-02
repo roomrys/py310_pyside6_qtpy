@@ -7,7 +7,7 @@ dependencies:
   - imageio
   - opencv=4.5.5
   - pillow
-  - pyside6 >=6.4.1
+  - pyside6=6.7.1
   - scikit-image
   - tensorflow=2.9.2a0
   - pip
