@@ -1,2 +1,18 @@
-2024-08-02 10:13:10,517 INFO test_env Environment created successfully!
-2024-08-02 10:13:11,668 INFO test_env Tests passed successfully!
+2024-08-02 10:17:41,849 ERROR test_env Failed to create environment!
+Traceback (most recent call last):
+  File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 220, in run_and_log
+    raise Exception(error)
+Exception: error    libmamba Could not solve for environment specs
+    The following packages are incompatible
+    ├─ opencv 4.5.3 py31hb6292c7_7 is installable and it requires
+    │  └─ libopencv 4.5.3 py31ha7d2a18_7, which requires
+    │     └─ harfbuzz >=3.1.2,<4.0a0 , which requires
+    │        └─ icu >=69.1,<70.0a0 , which can be installed;
+    └─ pyside6 6.4.2**  is not installable because it requires
+       └─ qt6-main >=6.4.2,<6.5.0a0  but there are no viable options
+          ├─ qt6-main [6.4.2|6.4.3] would require
+          │  └─ icu >=70.1,<71.0a0 , which conflicts with any installable versions previously reported;
+          └─ qt6-main 6.4.3 would require
+             └─ icu >=72.1,<73.0a0 , which conflicts with any installable versions previously reported.
+critical libmamba Could not solve for environment specs
+
