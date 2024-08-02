@@ -364,7 +364,12 @@ def main(library=None, input_dir=None, commit_message=None):
 
         # Run user-defined test code
         test_code(conda_command=conda_command)
+
+        # If no errors, add P: to the commit message
+        commit_message = f"P: {commit_message}"
     except Exception as e:
+        # If there are errors, add F: to the commit message
+        commit_message = f"F: {commit_message}"
         raise e
     finally:
         # Commit the changes
