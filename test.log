@@ -1,2 +1,9 @@
-2024-08-02 10:08:32,440 INFO test_env Environment created successfully!
-2024-08-02 10:08:33,609 INFO test_env Tests passed successfully!
+2024-08-02 10:10:52,090 ERROR test_env Failed to create environment!
+Traceback (most recent call last):
+  File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 220, in run_and_log
+    raise Exception(error)
+Exception: error    libmamba Could not solve for environment specs
+    The following package could not be installed
+    └─ tensorflow 2.9.2a0**  does not exist (perhaps a typo or a missing channel).
+critical libmamba Could not solve for environment specs
+
