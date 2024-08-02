@@ -4,9 +4,9 @@ channels:
   - sleap-deps/label/dev
 dependencies:
   - python=3.10
-  - opencv=4.10.0=headless_py310hf593829_2
+  - opencv
   - pyside6 >=6.4.1
-  - tensorflow=2.9.2a0
+  - protobuf <3.20,>=3.9.2
   - pip
   - pip:
       - -e . # Install the package in the current directory
