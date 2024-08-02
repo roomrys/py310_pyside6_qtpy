@@ -1,9 +1,10 @@
-2024-08-02 10:20:04,998 ERROR test_env Failed to create environment!
+2024-08-02 10:21:31,516 ERROR test_env Failed to create environment!
 Traceback (most recent call last):
   File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 220, in run_and_log
     raise Exception(error)
-Exception: error    libmamba Could not solve for environment specs
-    The following package could not be installed
-    └─ tensorflow 2.9.2a0**  does not exist (perhaps a typo or a missing channel).
-critical libmamba Could not solve for environment specs
+Exception: critical libmamba Multiple errors occured:
+    Download error (28) Timeout was reached [https://conda.anaconda.org/sleap-deps/label/dev/noarch/repodata.json.zst]
+    Operation too slow. Less than 30 bytes/sec transferred the last 60 seconds
+    Subdir sleap-deps/label/dev/noarch not loaded!
+    
 
