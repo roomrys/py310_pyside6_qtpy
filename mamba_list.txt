@@ -51,7 +51,6 @@ List of packages in environment: "/Users/liezlmaree/micromamba/envs/experiment"
   hyperframe                 6.0.1         pyhd8ed1ab_0             conda-forge         
   icu                        70.1          h6b3803e_0               conda-forge         
   idna                       3.7           pyhd8ed1ab_0             conda-forge         
-  imageio                    2.34.2        pyh12aca89_0             conda-forge         
   importlib-metadata         8.2.0         pyha770c72_0             conda-forge         
   jasper                     2.0.33        hc3cd1e9_1               conda-forge         
   jpeg                       9e            h1a8c8d9_3               conda-forge         
