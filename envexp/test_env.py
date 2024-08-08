@@ -291,7 +291,7 @@ def commit_changes(commit_message: str):
     """Commits the changes to the experiment branch."""
 
     # Commit the changes to the experiment branch
-    subprocess.run("git add .", shell=True)
+    subprocess.run("git add .", shell=True, cwd=BASE_DIR)
     subprocess.run(f'git commit -m "{commit_message}"', shell=True)
 
 
