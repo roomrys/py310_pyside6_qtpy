@@ -13,7 +13,7 @@ blinker @ file:///home/conda/feedstock_root/build_artifacts/blinker_171509118412
 Brotli @ file:///Users/runner/miniforge3/conda-bld/brotli-split_1695989934239/work
 cached-property @ file:///home/conda/feedstock_root/build_artifacts/cached_property_1615209429212/work
 click @ file:///home/conda/feedstock_root/build_artifacts/click_1692311806742/work
--e git+https://github.com/roomrys/envexp@56fb898159490b93299ffe5f21dc050614d55d26#egg=experiment&subdirectory=envexp
+-e git+https://github.com/roomrys/envexp@49b5d43859be4af73da1280d332da885a95967d0#egg=experiment&subdirectory=envexp
 google-auth-oauthlib @ file:///home/conda/feedstock_root/build_artifacts/google-auth-oauthlib_1630497468950/work
   google-auth @ file:///home/conda/feedstock_root/build_artifacts/google-auth_1723018752281/work
     cachetools @ file:///home/conda/feedstock_root/build_artifacts/cachetools_1721091878889/work
@@ -48,8 +48,8 @@ scipy @ file:///Users/runner/miniforge3/conda-bld/scipy-split_1720323036795/work
 tensorflow-hub==0.12.0
   numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1707225416355/work/dist/numpy-1.26.4-cp310-cp310-macosx_11_0_arm64.whl#sha256=14c628943f67e9c10d22faa9c1cdcbf69c3192e88f2f597d03b77a252e589567
   protobuf==4.25.4
-tensorflow-macos==2.16.2
-  tensorflow==2.16.2
+tensorflow-macos==2.16.1
+  tensorflow==2.16.1
     absl-py @ file:///home/conda/feedstock_root/build_artifacts/absl-py_1705494584803/work
     astunparse @ file:///home/conda/feedstock_root/build_artifacts/astunparse_1610696312422/work
       six==1.15.0

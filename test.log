@@ -1,5 +1,5 @@
-2024-08-08 15:36:33,683 INFO test_env Environment created successfully!
-2024-08-08 15:36:56,336 ERROR test_env Tests failed!
+2024-08-08 15:46:25,467 INFO test_env Environment created successfully!
+2024-08-08 15:46:48,055 ERROR test_env Tests failed!
 Traceback (most recent call last):
   File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 206, in run_and_log
     raise Exception(error)
