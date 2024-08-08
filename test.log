@@ -1,15 +1,2 @@
-2024-08-08 16:37:35,910 INFO test_env Environment created successfully!
-2024-08-08 16:37:58,003 ERROR test_env Tests failed!
-Traceback (most recent call last):
-  File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 206, in run_and_log
-    raise Exception(error)
-Exception: Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-  File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 184, in user_test_code
-    import tensorflow
-  File "/Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/tensorflow/__init__.py", line 455, in <module>
-    _ll.load_library(_plugin_dir)
-  File "/Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/tensorflow/python/framework/load_library.py", line 151, in load_library
-    py_tf.TF_LoadLibrary(lib)
-tensorflow.python.framework.errors_impl.NotFoundError: dlopen(/Users/liezlmaree/micromamba/envs/experiment/lib/python3.10/site-packages/tensorflow-plugins/libmetal_plugin.dylib, 0x0006): symbol not found in flat namespace '__ZN10tensorflow8internal10LogMessage16VmoduleActivatedEPKci'
-
+2024-08-08 16:54:57,221 INFO test_env Environment created successfully!
+2024-08-08 16:55:19,352 INFO test_env Tests passed successfully!
