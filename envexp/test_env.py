@@ -261,7 +261,7 @@ def log_dependencies(conda_command):
                     f.write(line)
 
     mamba_filename = BASE_DIR / "mamba_list.txt"
-    pip_filename = BASE_DIR / "pip_freeze.txt"
+    pip_filename = BASE_DIR / "pipdeptree.txt"
 
     # Reset the files
     for filename in [mamba_filename, pip_filename]:
@@ -276,10 +276,21 @@ def log_dependencies(conda_command):
             stdout=f,
         )
 
-    # pip freeze > pip_freeze.txt
+    # Find python path of experiment environment
+    result = subprocess.run(
+        f"{conda_command} run -n experiment which python",
+        shell=True,
+        capture_output=True,
+    )
+    python_path = result.stdout.decode().strip()
+
+    # pipdeptree -f > pipdeptree.txt
     with open(pip_filename, "w") as f:
+        # Run pipdeptree in the envexp environment on the experiment environment
         subprocess.run(
-            f"{conda_command} run -n experiment pip freeze", shell=True, stdout=f
+            f"{conda_command} run -n envexp pipdeptree --python {python_path} -f",
+            shell=True,
+            stdout=f,
         )
 
     # Remove empty lines from the files
@@ -381,7 +392,7 @@ def main(library=None, input_dir=None, commit_message=None):
 
 if __name__ == "__main__":
     main(
-        library="qtpy",
-        input_dir=r"C:\Users\Liezl\Projects\sleap-estimates-animal-poses\pull-requests\sleap",
+        # library="qtpy",
+        # input_dir=r"C:\Users\Liezl\Projects\sleap-estimates-animal-poses\pull-requests\sleap",
         commit_message="Run test code",
     )

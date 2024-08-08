@@ -1,0 +1,8 @@
+-e git+https://github.com/roomrys/envexp@833539cf76c7d27a39641967d2f94d623023e325#egg=experiment&subdirectory=envexp
+pip @ file:///home/conda/feedstock_root/build_artifacts/pip_1722450924710/work
+PySide6==6.7.2
+QtPy @ file:///home/conda/feedstock_root/build_artifacts/qtpy_1698112029416/work
+  packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1718189413536/work
+setuptools==72.1.0
+shiboken6==6.7.2
+wheel==0.44.0
