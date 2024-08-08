@@ -26,7 +26,8 @@ def close_logger_handlers(logger):
 
 
 # Configure the logging module to write logs to a file
-LOGFILE = Path(Path(__file__).parent.parent.absolute() / "test.log")
+BASE_DIR = Path(__file__).parent.parent.absolute()
+LOGFILE = BASE_DIR / "test.log"
 logging.basicConfig(
     filename=LOGFILE,
     level=logging.INFO,
@@ -259,8 +260,8 @@ def log_dependencies(conda_command):
                 if line.strip():  # only write the line if it's not empty
                     f.write(line)
 
-    mamba_filename = f"mamba_list.txt"
-    pip_filename = "pip_freeze.txt"
+    mamba_filename = BASE_DIR / "mamba_list.txt"
+    pip_filename = BASE_DIR / "pip_freeze.txt"
 
     # Reset the files
     for filename in [mamba_filename, pip_filename]:
