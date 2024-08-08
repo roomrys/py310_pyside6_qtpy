@@ -181,22 +181,7 @@ def find_imports(library, input_dir, output_dir=None):
 def user_test_code():
     """User-defined test code to run after the imports have been tested."""
 
-    return
-
-    # Example test code that is not run since after return
-    from qtpy.QtWidgets import QApplication, QMainWindow
-
-    def create_app():
-        """Creates Qt application."""
-        app = QApplication([])
-        return app
-
-    app = create_app()
-
-    window = QMainWindow()
-    window.showMaximized()
-
-    app.exec_()
+    import tensorflow
 
 
 def run_and_log(command, fail_message=None, pass_message=None):
@@ -387,7 +372,7 @@ def main(library=None, input_dir=None, commit_message=None):
         # Commit the changes
         close_logger_handlers(logger)
         wait_for_log_update(LOGFILE)
-        commit_changes(commit_message=commit_message)
+        # commit_changes(commit_message=commit_message)
 
 
 if __name__ == "__main__":
