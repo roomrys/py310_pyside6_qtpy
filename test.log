@@ -1,2 +1,8 @@
-2024-08-08 16:20:39,104 INFO test_env Environment created successfully!
-2024-08-08 16:20:58,646 INFO test_env Tests passed successfully!
+2024-08-08 16:24:23,101 ERROR test_env Failed to create environment!
+Traceback (most recent call last):
+  File "/Users/liezlmaree/Projects/envexp/envexp/test_env.py", line 206, in run_and_log
+    raise Exception(error)
+Exception: ERROR: Cannot install -r /Users/liezlmaree/Projects/envexp/envexp/requirements.txt (line 1) and protobuf>3.20 because these package versions have conflicting dependencies.
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+critical libmamba pip failed to install packages
+
