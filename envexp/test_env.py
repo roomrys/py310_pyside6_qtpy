@@ -372,7 +372,7 @@ def main(library=None, input_dir=None, commit_message=None):
         # Commit the changes
         close_logger_handlers(logger)
         wait_for_log_update(LOGFILE)
-        # commit_changes(commit_message=commit_message)
+        commit_changes(commit_message=commit_message)
 
 
 if __name__ == "__main__":
