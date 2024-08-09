@@ -181,7 +181,10 @@ def find_imports(library, input_dir, output_dir=None):
 def user_test_code():
     """User-defined test code to run after the imports have been tested."""
 
-    import tensorflow
+    import tensorflow as tf
+
+    physical_devices = tf.config.list_physical_devices("GPU")
+    assert len(physical_devices) > 0, "No GPU devices found."
 
 
 def run_and_log(command, fail_message=None, pass_message=None):
