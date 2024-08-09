@@ -26,7 +26,6 @@ dependencies:
   - conda-forge::protobuf >3.20
   - conda-forge::pyasn1 <0.7.0,>=0.4.6
   - conda-forge::pyasn1-modules >=0.2.1
-  - conda-forge::python >=3.10.0,<3.11.0
   - conda-forge::requests <3,>=2.21.0
   - conda-forge::requests-oauthlib >=0.7.0
   - conda-forge::rsa <5,>=3.1.4
@@ -35,6 +34,32 @@ dependencies:
   - conda-forge::urllib3 <3,>=1.21.1
   - conda-forge::werkzeug >=1.0.1
   - conda-forge::wrapt >=1.11.0
+  - conda-forge::python >=3.10.0,<3.11.0 # Start of sleap deps
+  - conda-forge::attrs >=21.2.0
+  - conda-forge::cattrs
+  - conda-forge::imageio
+  - conda-forge::imageio-ffmpeg
+  - conda-forge::jsmin
+  - conda-forge::jsonpickle
+  - conda-forge::networkx
+  - conda-forge::opencv
+  - conda-forge::pandas
+  - conda-forge::pillow
+  - conda-forge::psutil
+  - conda-forge::pykalman
+  - conda-forge::pyside6 >=6.4.1 # 6.4 conda package uses problematic QtCharts https://github.com/roomrys/envexp/pull/3
+  - conda-forge::python-rapidjson
+  - conda-forge::pyyaml
+  - conda-forge::pyzmq
+  - conda-forge::qtpy >=2.0.1
+  - conda-forge::rich
+  - conda-forge::scipy >=1.7.0 # Python 3.10 is compatible with scipy >=1.7.0
+  - conda-forge::scikit-image
+  - conda-forge::scikit-learn >=1.0.0 # Python 3.10 is compatible with scikit-learn >=1.0.0
+  - conda-forge::seaborn
+  - conda-forge::qudida
+  - conda-forge::albumentations
+  - conda-forge::ndx-pose
   - pip:
       - -r requirements.txt
       - -e . # Install the package in the current directory
