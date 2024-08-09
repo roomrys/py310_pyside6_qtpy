@@ -35,6 +35,11 @@ dependencies:
   - conda-forge::urllib3 <3,>=1.21.1
   - conda-forge::werkzeug >=1.0.1
   - conda-forge::wrapt >=1.11.0
+  - imageio # Start of conflicting sleap deps
+  - opencv
+  - pillow
+  - pyside6 >=6.4.1
+  - scikit-image
   - pip:
       - -r requirements.txt
       - -e . # Install the package in the current directory
